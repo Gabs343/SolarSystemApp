@@ -9,14 +9,14 @@ export class TextInputCustom extends Component{
 
     render(){
         return(
-            <View>
+          
                 <TextInput 
                     style={styles.input} 
                     label={this.props.label}
                     placeholder={this.props.placeholder}
                     onChangeText={this.props.onChangeText}
                 />
-            </View>
+            
         );
     }
 } 
@@ -26,9 +26,9 @@ const styles = StyleSheet.create({
         textAlign: "center",
         fontSize: 20,
         height: 40,
-        width: 130,
-        marginVertical: 20,
-        marginBottom: 15,
+        width: 180,
+        marginVertical: 10,
+        marginBottom: 30,
         backgroundColor: "transparent",
         borderBottomWidth: 1,
         borderBottomColor: "white",

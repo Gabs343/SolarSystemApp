@@ -25,7 +25,9 @@ const styles = StyleSheet.create({
     },
 
     title:{
-        fontSize: 40
+        fontSize: 50,
+        fontFamily: "Berlin Sans FB",
+        letterSpacing: 3
     },
 
     imagen: {
