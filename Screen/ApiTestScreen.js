@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Image, ScrollView, ImageBackground } from 'react-native';
-import { Text, IconButton, Divider, ActivityIndicator } from 'react-native-paper';
+import { Text, IconButton, Divider } from 'react-native-paper';
 import { TextInputCustom } from '../Components/TextInputCustom';
 import { LoadingCustom } from '../Components/LoadingCustom';
 
@@ -48,7 +48,6 @@ export class ApiTestScreen extends Component{
             );
         }else if(data.length !== 0){
             return(
-                
                 <ScrollView contentContainerStyle={styles.container}>
                     <ImageBackground style={styles.background} source={{uri:require("../assets/img/star-background.jpg")}} resizeMode="cover">
                     <View style={styles.containerTitle}>
@@ -59,8 +58,7 @@ export class ApiTestScreen extends Component{
                     <View style={styles.containerInfo}>
                         <Text style={styles.subtitle} >Information</Text>
                         <Divider style={styles.line}/>
-                        <Text>Category: {data[0].category}</Text>
-                        <Text>Mass: {data[0].mass}</Text>
+                        
                     </View>
                     <View style={styles.containerInput}>
                         <IconButton icon="rocket" color="white" size={55} onPress={this.submit}/>
@@ -141,6 +139,7 @@ const styles = StyleSheet.create({
 
     containerInput:{
        justifyContent: "center",
-       flexDirection: "row"
+       flexDirection: "row",
+       marginVertical: 7
     },
 });

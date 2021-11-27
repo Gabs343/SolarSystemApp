@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, ImageBackground } from 'react-native';
-import { Text, Button } from 'react-native-paper';
+import { Text } from 'react-native-paper';
 
 import { TextInputCustom } from '../Components/TextInputCustom';
+import { ButtonCustom } from '../Components/ButtonCustom.js';
 import { RegistroScreen } from './RegistroScreen';
 import {PerfilScreen} from './PerfilScreen';
 
 export class LoginScreen extends Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             user: "",
             password: "",
@@ -54,20 +55,21 @@ export class LoginScreen extends Component{
             return(
                 <View style={styles.container} >
                     <ImageBackground style={styles.background} source={{uri:require("../assets/img/star-background.jpg")}} resizeMode="cover">
-                    <View>
-                        <Text>Correo:</Text>
+                    <View style={styles.containerInputs}>
+                        <Text style={styles.label}>Correo:</Text>
                         <TextInputCustom onChangeText={userName => {this.setState({
                                         user: userName,
                                     })}}/>
-                        <Text>Contraseña:</Text>
+                        <Text style={styles.label}>Contraseña:</Text>
                         <TextInputCustom onChangeText={pass => {this.setState({
                                         password: pass,
                                     })}} 
                                     secureTextEntry/>
                     </View>
                     <View>
-                        <Button style={styles.buttons}  onPress={() => {this.onPressLog(!perfilVisible)}}>Ingresar</Button>
-                        <Button style={styles.buttons} onPress={() => {this.windowRegistro(!registroVisible)}}>Registrarse</Button> 
+                        <ButtonCustom title="Ingresar" onPress={() => {this.onPressLog(!perfilVisible)}}/>
+                        <ButtonCustom title="Registrarse" onPress={() => {this.windowRegistro(!registroVisible)}}/>
+                        <ButtonCustom title="logging with google" />
                     </View>
                     </ImageBackground>
                 </View>
@@ -80,8 +82,20 @@ export class LoginScreen extends Component{
 const styles = StyleSheet.create({
     container:{
         flex: 1,
-       
+
    
+    },
+
+    containerInputs:{
+        width: 300,
+        alignItems: "center",
+        marginBottom: 20
+    },
+
+    label:{
+        fontSize: 23,
+        letterSpacing: 3,
+        fontFamily: "Berlin Sans FB"
     },
 
     background:{
@@ -90,8 +104,4 @@ const styles = StyleSheet.create({
         justifyContent: "center"
     },
 
-    buttons:{
-        marginVertical: 10,
-        
-    },
 });

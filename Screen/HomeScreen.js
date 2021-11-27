@@ -26,10 +26,11 @@ const styles = StyleSheet.create({
     background:{
         flex: 1,
         alignItems: "center",
-       paddingVertical: 80
+       paddingVertical: 80,
     },
 
     title:{
-        fontSize: 30
+        fontSize: 40,
+        fontFamily: "Berlin Sans FB"
     }
 });
