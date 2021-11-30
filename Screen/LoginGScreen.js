@@ -8,7 +8,6 @@ import { RegistroScreen } from './RegistroScreen';
 import {PerfilScreen} from './PerfilScreen';
 
 import * as Google from 'expo-auth-session/providers/google';
-import { color } from 'react-native-reanimated';
 
 export function LoginGScreen({navigation}){
 
@@ -29,14 +28,14 @@ export function LoginGScreen({navigation}){
         <View style={styles.container} >
                     {/*<ImageBackground style={styles.background} source={{uri:require("../assets/img/star-background.jpg")}} resizeMode="cover">*/}
                     <View style={styles.containerInputs}>
-                        <Text style={styles.label}>Correo:</Text>
+                        <Text style={styles.label}>Mail:</Text>
                         <TextInputCustom />
-                        <Text style={styles.label}>Contraseña:</Text>
+                        <Text style={styles.label}>Password:</Text>
                         <TextInputCustom 
                                     secureTextEntry/>
                     </View>
                     <View style={styles.containerButtons}>
-                        <ButtonCustom title="Ingresar" />
+                        <ButtonCustom title="Logging" />
                         <ButtonCustom title="Registrarse" />
                         <ButtonCustom title="logging with google" onPress={ () =>{ promptAsync()} }/>
                     </View>
