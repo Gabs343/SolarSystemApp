@@ -24,7 +24,6 @@ export class ButtonCustom extends Component{
 
 const styles = StyleSheet.create({
     button: {
-        flex:1,
         justifyContent: "center",
 
         borderRadius: 7,
@@ -33,14 +32,14 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         paddingHorizontal: 20,
 
-        marginVertical: 10
+        marginVertical: 10,
     },
 
     text:{
         color: "white",
         textAlign: "center",
         fontSize: 18,
-        fontFamily: "Berlin Sans FB",
+        fontFamily: "Inconsolata",
         letterSpacing: 3
     }
 });

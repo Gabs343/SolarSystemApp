@@ -41,9 +41,9 @@ export class ApiTestScreen extends Component{
         if(!isLoaded){
             return (
                 <View style={styles.container}>
-                    <ImageBackground style={styles.background} source={{uri:require("../assets/img/star-background.jpg")}} resizeMode="cover">
+                    {/*<ImageBackground style={styles.background} source={{uri:require("../assets/img/star-background.jpg")}} resizeMode="cover">*/}
                     <LoadingCustom/>
-                    </ImageBackground>
+                    {/*</ImageBackground>*/}
                 </View>
             );
         }else if(data.length !== 0){
@@ -52,7 +52,7 @@ export class ApiTestScreen extends Component{
                     <ImageBackground style={styles.background} source={{uri:require("../assets/img/star-background.jpg")}} resizeMode="cover">
                     <View style={styles.containerTitle}>
                         <Text style={styles.title}>{data[0].name.toUpperCase()}</Text>
-                        <Image style={styles.imagen} source={{ uri: require(`../assets/img/${data[0].src}`) }}/>
+                        {/*<Image style={styles.imagen} source={{ uri: require(`../assets/img/${data[0].src}`) }}/>*/}
                     </View>
                     
                     <View style={styles.containerInfo}>
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
     },
 
     containerInfo:{
-        alignItems: "left",
+        //alignItems: "left", dont use on android
         marginHorizontal: 20
     },
 

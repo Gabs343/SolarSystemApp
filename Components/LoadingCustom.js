@@ -11,7 +11,7 @@ export class LoadingCustom extends Component{
         return(
             <View style={styles.container}>
                 <Text style={styles.title}>LOADING</Text>
-                <Image style={styles.imagen} source={{uri: require("../assets/img/planetsLoading.gif")}}/>
+                {/*<Image style={styles.imagen} source={{uri: require("../assets/img/planetsLoading.gif")}}/>*/}
             </View>
         );
     }
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 
     title:{
         fontSize: 50,
-        fontFamily: "Berlin Sans FB",
+        fontFamily: "Inconsolata",
         letterSpacing: 3
     },
 

@@ -5,13 +5,31 @@ import { Text } from 'react-native-paper';
 export class HomeScreen extends Component{
     constructor(props){
         super(props);
+        this.state = {
+            userInfo: null,
+           
+        }
     }
+
+
+    componentDidMount(){
+        console.log("Montando");
+        let token = this.props.route.params?.auth.accessToken;
+        fetch(process.env.GOOGLE_URL + token).then(resp => {
+            this.setState({userInfo: resp.data});
+        }).catch(e => {
+            console.log(e);
+        })
+    }
+
     render(){
         return(
             <View style={styles.container}> 
-                <ImageBackground style={styles.background} source={{uri: require("../assets/img/galaxy.gif")}}>
+                <ImageBackground style={styles.background} source={{uri: "https://c.tenor.com/XqVhAiPc7VYAAAAC/via-lactea-milky-way.gif"}}>
+                {/*<ImageBackground style={styles.background} source={{uri: require("../assets/img/galaxy.gif")}}>*/}
                 <Text style={styles.title} >Welcome to the</Text>
                 <Text style={styles.title} >Solar System</Text>
+                <Text>Nombre: {this.state.userInfo?.name}</Text>
                 </ImageBackground>
             </View>
         );
@@ -31,6 +49,7 @@ const styles = StyleSheet.create({
 
     title:{
         fontSize: 40,
-        fontFamily: "Berlin Sans FB"
+        fontFamily: "Inconsolata",
+        color: "white"
     }
 });

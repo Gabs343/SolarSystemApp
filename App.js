@@ -8,6 +8,10 @@ import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import { HomeScreen } from './Screen/HomeScreen';
 import { ApiTestScreen } from './Screen/ApiTestScreen';
 import { LoginScreen } from './Screen/LoginScreen'; 
+import { LoginGScreen } from './Screen/LoginGScreen';
+
+import * as Font from 'expo-font';
+
 
 export default class App extends Component{
   constructor(){
@@ -17,7 +21,23 @@ export default class App extends Component{
       colors: {
         myOwnColor: 'white',
       },
+
     }
+
+  }
+
+
+  componentDidMount(){
+     Font.loadAsync({
+      // Load a font `Montserrat` from a static resource
+      Inconsolata: require('./assets/fonts/Inconsolata-Regular.ttf'),
+
+      // Any string can be used as the fontFamily name. Here we use an object to provide more control
+      'Inconsolata-SemiBold': {
+        uri: require('./assets/fonts/Inconsolata-SemiBold.ttf'),
+        display: Font.FontDisplay.FALLBACK,
+      },
+    });
 
   }
 
@@ -49,7 +69,7 @@ export default class App extends Component{
             />
             <Menu.Screen 
               name="Login" 
-              component={LoginScreen}
+              component={LoginGScreen}
               options={{
                 tabBarIcon: ({color}) => (
                   <MaterialIcons name="login" color={color} size={26}/>

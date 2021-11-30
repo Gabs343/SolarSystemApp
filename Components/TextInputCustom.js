@@ -23,6 +23,7 @@ export class TextInputCustom extends Component{
 
 const styles = StyleSheet.create({
     input: {
+        
         textAlign: "center",
         fontSize: 20,
         height: 40,
