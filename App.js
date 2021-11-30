@@ -8,6 +8,7 @@ import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import { HomeScreen } from './Screen/HomeScreen';
 import { ApiTestScreen } from './Screen/ApiTestScreen';
 import { LoginScreen } from './Screen/LoginScreen'; 
+import { LoginGScreen } from './Screen/LoginGScreen';
 
 export default class App extends Component{
   constructor(){
@@ -49,7 +50,7 @@ export default class App extends Component{
             />
             <Menu.Screen 
               name="Login" 
-              component={LoginScreen}
+              component={LoginGScreen}
               options={{
                 tabBarIcon: ({color}) => (
                   <MaterialIcons name="login" color={color} size={26}/>
