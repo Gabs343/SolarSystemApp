@@ -16,13 +16,7 @@ import * as Font from 'expo-font';
 export default class App extends Component{
   constructor(){
     super();
-    this.state={
-      ...DefaultTheme,
-      colors: {
-        myOwnColor: 'white',
-      },
-
-    }
+    
 
   }
 
@@ -42,9 +36,9 @@ export default class App extends Component{
   }
 
   render(){
-    let {theme} = this.state;
+    
     return (
-      <PaperProvider theme={theme}>
+      <PaperProvider >
       <NavigationContainer>
         <Menu.Navigator
           initialRouteName="Home"

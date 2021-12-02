@@ -33,5 +33,6 @@ const styles = StyleSheet.create({
         backgroundColor: "transparent",
         borderBottomWidth: 1,
         borderBottomColor: "white",
+        color:"white"
     },
 });

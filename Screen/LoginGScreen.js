@@ -26,7 +26,7 @@ export function LoginGScreen({navigation}){
 
     return(
         <View style={styles.container} >
-                    {/*<ImageBackground style={styles.background} source={{uri:require("../assets/img/star-background.jpg")}} resizeMode="cover">*/}
+                    <ImageBackground style={styles.background} source={{uri: "https://i.imgur.com/G59jKlU.jpg"}} resizeMode="cover">
                     <View style={styles.containerInputs}>
                         <Text style={styles.label}>Mail:</Text>
                         <TextInputCustom />
@@ -39,7 +39,7 @@ export function LoginGScreen({navigation}){
                         <ButtonCustom title="Registrarse" />
                         <ButtonCustom title="logging with google" onPress={ () =>{ promptAsync()} }/>
                     </View>
-                    {/*</ImageBackground>*/}
+                    </ImageBackground>
         </View>
     );
 }
@@ -47,7 +47,7 @@ export function LoginGScreen({navigation}){
 const styles = StyleSheet.create({
     container:{
         flex: 1,
-        backgroundColor: "black",
+
         justifyContent: "center"
     },
 

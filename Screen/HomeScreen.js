@@ -28,7 +28,6 @@ export class HomeScreen extends Component{
         return(
             <View style={styles.container}> 
                 <ImageBackground style={styles.background} source={{uri: "https://c.tenor.com/XqVhAiPc7VYAAAAC/via-lactea-milky-way.gif"}}>
-                {/*<ImageBackground style={styles.background} source={{uri: require("../assets/img/galaxy.gif")}}>*/}
                 <Text style={styles.title} >Welcome to the</Text>
                 <Text style={styles.title} >Solar System</Text>
                 <Text>Nombre: {this.state.userInfo?.name}</Text>
