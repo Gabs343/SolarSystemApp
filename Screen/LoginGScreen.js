@@ -12,8 +12,8 @@ import * as Google from 'expo-auth-session/providers/google';
 export function LoginGScreen({navigation}){
 
     const [request, response, promptAsync] = Google.useAuthRequest({
-        expoClientId: `${process.env.EXPOID}.apps.googleusercontent.com.apps.googleusercontent.com`,
-        androidClientId: `${process.env.EXPOID}.apps.googleusercontent.com.apps.googleusercontent.com`
+        expoClientId: `.apps.googleusercontent.com`,
+        androidClientId: `.apps.googleusercontent.com`
     });
 
     React.useEffect( () => {
