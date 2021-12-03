@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, ImageBackground } from 'react-native';
+import { StyleSheet, View, ImageBackground, ScrollView } from 'react-native';
 import { Text } from 'react-native-paper';
 
 import { TextInputCustom } from '../Components/TextInputCustom';
@@ -12,9 +12,8 @@ import * as Google from 'expo-auth-session/providers/google';
 export function LoginGScreen({navigation}){
 
     const [request, response, promptAsync] = Google.useAuthRequest({
-        expoClientId: '.apps.googleusercontent.com',
-        webClientId: '.apps.googleusercontent.com',
-        androidClientId: '.apps.googleusercontent.com'
+        expoClientId: `${process.env.EXPOID}.apps.googleusercontent.com.apps.googleusercontent.com`,
+        androidClientId: `${process.env.EXPOID}.apps.googleusercontent.com.apps.googleusercontent.com`
     });
 
     React.useEffect( () => {
@@ -25,7 +24,7 @@ export function LoginGScreen({navigation}){
     }, [response]);
 
     return(
-        <View style={styles.container} >
+        <ScrollView contentContainerStyle={styles.container} >
                     <ImageBackground style={styles.background} source={{uri: "https://i.imgur.com/G59jKlU.jpg"}} resizeMode="cover">
                     <View style={styles.containerInputs}>
                         <Text style={styles.label}>Mail:</Text>
@@ -40,13 +39,13 @@ export function LoginGScreen({navigation}){
                         <ButtonCustom title="logging with google" onPress={ () =>{ promptAsync()} }/>
                     </View>
                     </ImageBackground>
-        </View>
+        </ScrollView>
     );
 }
 
 const styles = StyleSheet.create({
     container:{
-        flex: 1,
+        flexGrow: 1,
 
         justifyContent: "center"
     },
