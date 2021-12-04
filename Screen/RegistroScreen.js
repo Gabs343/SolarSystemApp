@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, ScrollView  } from 'react-native';
-import { Text, Button, TextInput } from 'react-native-paper';
+import { StyleSheet, View, ScrollView, ImageBackground  } from 'react-native';
+import { Text } from 'react-native-paper';
+
+import { ButtonCustom } from '../Components/ButtonCustom';
+import { TextInputCustom } from '../Components/TextInputCustom';
 
 export class RegistroScreen extends Component{
     constructor(props){
@@ -15,54 +18,36 @@ export class RegistroScreen extends Component{
             salirButton: props.onPress,
         }
 
-        
-        this.datosCompletos = this.datosCompletos.bind(this);
-        this.enviarRegistro = this.enviarRegistro.bind(this);
-    }
-
-    datosCompletos(){
-        const {name, lastName, age, mail, password} = this.state;
-        return  name !== "" && lastName !== "" && age !== "" && mail !== "" && password !== "";
-    }
-
-    enviarRegistro(){
-        
-        if(this.datosCompletos()){
-            console.log("datos Completos");
-        }else{
-            console.log("faltan datos")
-        }
     }
 
     render(){
         return(
-            <ScrollView>
-            <View style={styles.container}>
+            <ScrollView contentContainerStyle={styles.container}>
+                <ImageBackground style={styles.background} source={{uri: "https://i.imgur.com/G59jKlU.jpg"}} resizeMode="cover">
                 <View>
-                    <Text>Name:</Text>
-                    <TextInput style={styles.inputLog} 
-                                onChangeText={newName => this.setState({name: newName})}/>
+                    <Text style={styles.label}>Name:</Text>
+                    <TextInputCustom  onChangeText={newName => this.setState({name: newName})}/>
 
-                    <Text>LatName:</Text>
-                    <TextInput style={styles.inputLog} 
-                                onChangeText={newLastName => this.setState({lastName: newLastName})}/>
-                    <Text>Age:</Text>
-                    <TextInput style={styles.inputLog} 
-                                onChangeText={newAge => this.setState({age: newAge})}/> 
-                    <Text>Mail:</Text>
-                    <TextInput style={styles.inputLog} 
-                                onChangeText={newMail => this.setState({mail: newMail})} />
-                    <Text>Password:</Text>
-                    <TextInput style={styles.inputLog}  
-                                secureTextEntry 
-                                onChangeText={newPass => this.setState({password: newPass})}/> 
+                    <Text style={styles.label}>LatName:</Text>
+                    <TextInputCustom  onChangeText={newLastName => this.setState({lastName: newLastName})}/>
+
+                    <Text style={styles.label}>Age:</Text>
+                    <TextInputCustom onChangeText={newAge => this.setState({age: newAge})}/>
+
+                    <Text style={styles.label}>Mail:</Text>
+                    <TextInputCustom onChangeText={newMail => this.setState({mail: newMail})} />
+
+                    <Text style={styles.label}>Password:</Text>
+                    <TextInputCustom secureTextEntry 
+                                onChangeText={newPass => this.setState({password: newPass})}
+                                secureTextEntry/>
                 </View>
 
                 <View>
-                    <Button style={styles.buttons} onPress={this.enviarRegistro()}>Registrarse</Button>
-                    <Button style={styles.buttons} onPress={this.state.salirButton}>Salir</Button>
+                    <ButtonCustom title="Registrarse" />
+                    <ButtonCustom title="Exit" onPress={this.state.salirButton} />
                 </View>
-            </View>
+                </ImageBackground>
             </ScrollView>
         );
     }
@@ -70,22 +55,17 @@ export class RegistroScreen extends Component{
 
 const styles = StyleSheet.create({
     container:{
+        flexGrow: 1,
+    },
+
+    background:{
         flex: 1,
-       justifyContent:"space-evenly",
-       alignItems:"center",
-       marginVertical: 20
+        alignItems: "center",
+        justifyContent: "center"
     },
 
-    inputLog: {
-        textAlign: "center",
-        backgroundColor: "white",
-        height: 40,
-        width: 300,
-        marginVertical: 20,
-        marginBottom: 65,
-    },
-
-    buttons:{
-        marginVertical: 10,
+    label: {
+        color: "white"
     }
+
 });
