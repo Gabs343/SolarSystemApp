@@ -16,7 +16,7 @@ export class ApiTestScreen extends Component{
     }
 
     componentDidMount(){
-        fetch(`http://70da-181-229-145-193.ngrok.io/solarsystem/${this.state.item}`)
+        fetch(`http://1359-181-229-145-193.ngrok.io/solarsystem/${this.state.item}`)
             .then((response) => response.json())
                 .then((jsonData) => {
                 this.setState({data: jsonData,
@@ -58,7 +58,15 @@ export class ApiTestScreen extends Component{
                     <View style={styles.containerInfo}>
                         <Text style={styles.subtitle} >Information</Text>
                         <Divider style={styles.line}/>
-                        
+                        {
+                            Object.keys(data[0]).map((k) => { 
+                                if(k !== "src" && k !== "_id" && k !== "__v" && data[0][k] !== ""){
+                                    return(
+                                        <Text style={styles.text} key={k}>{k + ": " + data[0][k]}</Text>
+                                    );
+                                }
+                            })
+                        }
                     </View>
                     <View style={styles.containerInput}>
                         <IconButton icon="rocket" color="white" size={55} onPress={this.submit}/>
@@ -136,7 +144,6 @@ const styles = StyleSheet.create({
     },
 
     containerInfo:{
-        //alignItems: "left", dont use on android
         marginHorizontal: 20
     },
 
@@ -145,4 +152,8 @@ const styles = StyleSheet.create({
        flexDirection: "row",
        marginVertical: 7
     },
+
+    text:{
+        color: "white"
+    }
 });
