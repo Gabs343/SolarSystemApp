@@ -15,6 +15,8 @@ export class TextInputCustom extends Component{
                     label={this.props.label}
                     placeholder={this.props.placeholder}
                     onChangeText={this.props.onChangeText}
+                    theme={{colors: {text: "white"}}}
+                    secureTextEntry={this.props.secureTextEntry}
                 />
             
         );
@@ -23,6 +25,7 @@ export class TextInputCustom extends Component{
 
 const styles = StyleSheet.create({
     input: {
+       
         textAlign: "center",
         fontSize: 20,
         height: 40,
@@ -32,5 +35,6 @@ const styles = StyleSheet.create({
         backgroundColor: "transparent",
         borderBottomWidth: 1,
         borderBottomColor: "white",
+       
     },
 });

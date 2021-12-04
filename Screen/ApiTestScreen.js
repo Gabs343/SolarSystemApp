@@ -16,7 +16,7 @@ export class ApiTestScreen extends Component{
     }
 
     componentDidMount(){
-        fetch(`http://localhost:3000/solarsystem/${this.state.item}`)
+        fetch(`http://1359-181-229-145-193.ngrok.io/solarsystem/${this.state.item}`)
             .then((response) => response.json())
                 .then((jsonData) => {
                 this.setState({data: jsonData,
@@ -41,7 +41,7 @@ export class ApiTestScreen extends Component{
         if(!isLoaded){
             return (
                 <View style={styles.container}>
-                    <ImageBackground style={styles.background} source={{uri:require("../assets/img/star-background.jpg")}} resizeMode="cover">
+                    <ImageBackground style={styles.background} source={{uri: "https://i.imgur.com/G59jKlU.jpg"}} resizeMode="cover">
                     <LoadingCustom/>
                     </ImageBackground>
                 </View>
@@ -49,16 +49,24 @@ export class ApiTestScreen extends Component{
         }else if(data.length !== 0){
             return(
                 <ScrollView contentContainerStyle={styles.container}>
-                    <ImageBackground style={styles.background} source={{uri:require("../assets/img/star-background.jpg")}} resizeMode="cover">
+                    <ImageBackground style={styles.background} source={{uri: "https://i.imgur.com/G59jKlU.jpg"}} resizeMode="cover">
                     <View style={styles.containerTitle}>
                         <Text style={styles.title}>{data[0].name.toUpperCase()}</Text>
-                        <Image style={styles.imagen} source={{ uri: require(`../assets/img/${data[0].src}`) }}/>
+                        <Image style={styles.imagen} source={{ uri: `${data[0].src}` }}/>
                     </View>
                     
                     <View style={styles.containerInfo}>
                         <Text style={styles.subtitle} >Information</Text>
                         <Divider style={styles.line}/>
-                        
+                        {
+                            Object.keys(data[0]).map((k) => { 
+                                if(k !== "src" && k !== "_id" && k !== "__v" && data[0][k] !== ""){
+                                    return(
+                                        <Text style={styles.text} key={k}>{k + ": " + data[0][k]}</Text>
+                                    );
+                                }
+                            })
+                        }
                     </View>
                     <View style={styles.containerInput}>
                         <IconButton icon="rocket" color="white" size={55} onPress={this.submit}/>
@@ -71,9 +79,9 @@ export class ApiTestScreen extends Component{
         }else{
             return(
                 <View style={styles.container}>
-                    <ImageBackground style={styles.background} source={{uri:require("../assets/img/star-background.jpg")}} resizeMode="cover">
+                    <ImageBackground style={styles.background} source={{uri: "https://i.imgur.com/G59jKlU.jpg"}} resizeMode="cover">
                         <View style={styles.containerTitle}>
-                            <Image style={styles.imagenError} source={{uri: require("../assets/img/error-icon.png")}}/>
+                            <Image style={styles.imagenError} source={{uri: "https://i.imgur.com/9bqcFed.png"}}/>
                             <Text style={styles.titleError}>No result given</Text>
                             <Text style={styles.titleError}>Try Again</Text>
                         </View>   
@@ -91,7 +99,7 @@ export class ApiTestScreen extends Component{
 
 const styles = StyleSheet.create({
     container:{
-        flex: 1,
+        flexGrow: 1,
         justifyContent: "space-evenly",
       
     },
@@ -107,14 +115,17 @@ const styles = StyleSheet.create({
 
     title:{
         fontSize: 50,  
+        color: "white"
     },
 
     subtitle:{
-        fontSize: 20
+        fontSize: 20,
+        color: "white"
     },
 
     titleError:{
-        fontSize: 30
+        fontSize: 30,
+        color: "white"
     },
 
     line:{
@@ -133,7 +144,6 @@ const styles = StyleSheet.create({
     },
 
     containerInfo:{
-        alignItems: "left",
         marginHorizontal: 20
     },
 
@@ -142,4 +152,8 @@ const styles = StyleSheet.create({
        flexDirection: "row",
        marginVertical: 7
     },
+
+    text:{
+        color: "white"
+    }
 });

@@ -11,7 +11,7 @@ export class LoadingCustom extends Component{
         return(
             <View style={styles.container}>
                 <Text style={styles.title}>LOADING</Text>
-                <Image style={styles.imagen} source={{uri: require("../assets/img/planetsLoading.gif")}}/>
+                <Image style={styles.imagen} source={{uri: "https://i.imgur.com/wRiB1ud.gif"}}/>
             </View>
         );
     }
@@ -19,18 +19,20 @@ export class LoadingCustom extends Component{
 
 const styles = StyleSheet.create({
     container:{
-        flex: 1,
+        
         alignItems: "center",
         justifyContent: "center"
     },
 
     title:{
         fontSize: 50,
-        fontFamily: "Berlin Sans FB",
-        letterSpacing: 3
+        fontFamily: "Inconsolata",
+        letterSpacing: 3,
+        color: "white"
     },
 
     imagen: {
+
         width: 300,
         height: 300,
     },

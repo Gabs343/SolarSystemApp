@@ -11,20 +11,24 @@ export class HomeScreen extends Component{
         }
     }
 
-    componentDidMount(){
-        console.log("Montando");
-        let token = this.props.route.params?.auth.accessToken;
-        fetch(process.env.GOOGLE_URL + token).then(resp => {
+session(token){
+       fetch(process.env.GOOGLE_URL + token).then(resp => {
             this.setState({userInfo: resp.data});
         }).catch(e => {
             console.log(e);
-        })
+       })
+    }   
+
+    componentDidMount(){
+        let token = this.props.route.params?.auth.accessToken;
+        this.session(token);
+
     }
 
     render(){
         return(
             <View style={styles.container}> 
-                <ImageBackground style={styles.background} source={{uri: require("../assets/img/galaxy.gif")}}>
+                <ImageBackground style={styles.background} source={{uri: "https://c.tenor.com/XqVhAiPc7VYAAAAC/via-lactea-milky-way.gif"}}>
                 <Text style={styles.title} >Welcome to the</Text>
                 <Text style={styles.title} >Solar System</Text>
                 <Text>Nombre: {this.state.userInfo?.name}</Text>
@@ -47,6 +51,6 @@ const styles = StyleSheet.create({
 
     title:{
         fontSize: 40,
-        fontFamily: "Berlin Sans FB"
+        color: "white"
     }
 });

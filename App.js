@@ -10,22 +10,35 @@ import { ApiTestScreen } from './Screen/ApiTestScreen';
 import { LoginScreen } from './Screen/LoginScreen'; 
 import { LoginGScreen } from './Screen/LoginGScreen';
 
+import * as Font from 'expo-font';
+
+
 export default class App extends Component{
   constructor(){
     super();
-    this.state={
-      ...DefaultTheme,
-      colors: {
-        myOwnColor: 'white',
+    
+
+  }
+
+
+  componentDidMount(){
+     Font.loadAsync({
+      // Load a font `Montserrat` from a static resource
+      Inconsolata: require('./assets/fonts/Inconsolata-Regular.ttf'),
+
+      // Any string can be used as the fontFamily name. Here we use an object to provide more control
+      'Inconsolata-SemiBold': {
+        uri: require('./assets/fonts/Inconsolata-SemiBold.ttf'),
+        display: Font.FontDisplay.FALLBACK,
       },
-    }
+    });
 
   }
 
   render(){
-    let {theme} = this.state;
+    
     return (
-      <PaperProvider theme={theme}>
+      <PaperProvider >
       <NavigationContainer>
         <Menu.Navigator
           initialRouteName="Home"
