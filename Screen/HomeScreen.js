@@ -11,17 +11,18 @@ export class HomeScreen extends Component{
         }
     }
 
-    session(token){
-        fetch(process.env.GOOGLE_URL + token).then(resp => {
+session(token){
+       fetch(process.env.GOOGLE_URL + token).then(resp => {
             this.setState({userInfo: resp.data});
         }).catch(e => {
             console.log(e);
-        })
+       })
     }   
 
     componentDidMount(){
         let token = this.props.route.params?.auth.accessToken;
         this.session(token);
+
     }
 
     render(){
