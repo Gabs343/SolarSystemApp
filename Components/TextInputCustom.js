@@ -16,6 +16,7 @@ export class TextInputCustom extends Component{
                     placeholder={this.props.placeholder}
                     onChangeText={this.props.onChangeText}
                     theme={{colors: {text: "white"}}}
+                    secureTextEntry={this.props.secureTextEntry}
                 />
             
         );
