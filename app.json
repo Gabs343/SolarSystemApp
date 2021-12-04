@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "App-Final",
+    "scheme": "app-final",
     "slug": "App-Final",
     "version": "1.0.0",
     "orientation": "portrait",
